@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --paper: #ffffff;
+  --ink: #0b1221;
+  --signal: #ff4500;
+  --radar: #0891b2;
+}
+
+html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Manrope", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::selection { background: var(--signal); color: #fff; }
+
+/* outlined headline word (same style as the original site) */
+.text-outline {
+  -webkit-text-stroke: 1.5px rgba(11, 18, 33, 0.45);
+  color: transparent;
+}
+
+@keyframes rise { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
+.hero-in { animation: rise .9s cubic-bezier(.2,.7,.2,1) both; }
+.hero-in-2 { animation-delay: .15s; }
+.hero-in-3 { animation-delay: .3s; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .hero-in { animation: none; }
+}
+
+:focus-visible { outline: 2px solid var(--signal); outline-offset: 3px; }
+
+/* big footer word filled with a photo (image is set in Footer.tsx) */
+.text-image {
+  background-color: #0b2a5b; 
+  background-position: center 40%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
